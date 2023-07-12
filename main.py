@@ -1,8 +1,8 @@
 """
-Ant colony optimization library usase cases
+Ant colony optimization library usage cases
 """
 from aco.ants import PrimitiveAnt
-from aco.state_machines import DynamicStateMachine01
+from aco.state_machines import DynamicStateMachineExample01
 
 
 def main():
@@ -14,7 +14,7 @@ def main():
     best_ants = []
     current_record = 0
     for idx in range(number_of_ants):
-        test_state_machine = DynamicStateMachine01()
+        test_state_machine = DynamicStateMachineExample01()
         test_ant = PrimitiveAnt(test_state_machine, str(idx))
         while test_ant.walk() != -1:
             pass
