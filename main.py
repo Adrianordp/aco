@@ -10,15 +10,15 @@ def main():
     Entry point
     """
     number_of_ants = 100
-    accum = []
+    ant_accumulator = []
     best_ants = []
-    current_record = 0
+    current_distance_record = 0
     for idx in range(number_of_ants):
         test_state_machine = DynamicStateMachineExample01()
         test_ant = PrimitiveAnt(test_state_machine, str(idx))
         while test_ant.walk() != -1:
             pass
-        accum.append(test_ant.distance)
+        ant_accumulator.append(test_ant.distance)
         print(
             "ant:",
             test_ant.name,
@@ -27,10 +27,10 @@ def main():
             "path:",
             test_ant.path,
         )
-        if test_ant.distance == current_record:
+        if test_ant.distance == current_distance_record:
             best_ants.append(test_ant)
-        elif test_ant.distance > current_record:
-            current_record = test_ant.distance
+        elif test_ant.distance > current_distance_record:
+            current_distance_record = test_ant.distance
             best_ants = [test_ant]
 
     print("\nBest ants")

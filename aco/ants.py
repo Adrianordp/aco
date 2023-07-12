@@ -24,8 +24,6 @@ class PrimitiveAnt:
         """
         self.name = name
         self.state_machine = state_machine
-        # self.current_state = state_machine.current_state
-        # self.last_state = state_machine.last_state
         self.distance = 0
         self.path = []
 
@@ -33,8 +31,8 @@ class PrimitiveAnt:
         """The ant walks through states of the state machine
 
         Returns:
-            int: index of the stage where the ant last visited.
-            -1: ant has nowhere to go and the ant stays where it was
+            int: index of the stage where the ant last visited. Returns -1 when ant has nowhere to
+            go and the ant stays where it was
         """
 
         # Remembers the path it went through
