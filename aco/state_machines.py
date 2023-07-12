@@ -82,13 +82,19 @@ class DynamicStateMachineExample01:
     # Action performed on state 1
     def state_1(self, origin: int):
         """State 1
-        Do nothing.
+        When it comes from state 2, removes path from state 2 to state 1
+        When it comes from state 3, removes path from state 3 to state 1
 
         Args:
             origin (int): index of the state just before entering this state
         """
         self.current_state = 1
         self.last_state = origin
+
+        if origin == 2:
+            self.map[2][1] = 0
+        if origin == 1:
+            self.map[3][1] = 0
 
     # Action performed on state 2
     def state_2(self, origin: int):
