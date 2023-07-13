@@ -7,7 +7,7 @@ import numpy as np
 
 class PrimitiveAnt:
     """
-    Primitive ant without pherormones
+    Primitive ant without pheromones
     """
 
     def __init__(self, state_machine: "StateMachine", name: str = ""):
@@ -65,6 +65,28 @@ class PrimitiveAnt:
         # Records the new current state as the next state, since the ant has moved to next state
         self.state_machine.last_state = self.state_machine.current_state
         self.state_machine.current_state = next_state
+
+
+class AntPheromone:
+    """
+    A
+    """
+
+    def __init__(self, state_machine: "StateMachine", name: str = ""):
+        self.name = name
+        self.state_machine = state_machine
+        self.distance = 0
+        self.path = []
+        self.pheromone_evaporation = 0.1
+        self.calibration = 1
+
+    def walk(self) -> int:
+        """The ant walks through states of the state machine depositing pheromone when finished
+
+        Returns:
+            int: index of the stage where the ant last visited. Returns -1 when ant has nowhere to
+            go and the ant stays where it was
+        """
 
 
 if __name__ == "__main__":
